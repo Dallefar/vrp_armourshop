@@ -15,10 +15,7 @@ CreateThread(function()
             EndTextCommandSetBlipName(blip)
         end
         
-        local point = lib.points.new({
-            coords = v.Coords,
-            distance = 3,
-        })
+        local point = lib.points.new({ coords = v.Coords, distance = 3 })
          
         function point:onEnter()
             print('Entered')

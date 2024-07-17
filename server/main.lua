@@ -23,11 +23,9 @@ lib.callback.register('vrp_armorshop:giveweapon', function(source, weapon, shop,
 
     if ItemCode == 'ARMOR' then
         if vRP.tryFullPayment({user_id, price}) then
-            TriggerClientEvent('ox_lib:notify', source, { title = 'Armour Shop', description = 'Du har købt en ' .. weapon .. ' for ' .. price .. 'kr!', type = 'success' })
-            return true 
+            return true, TriggerClientEvent('ox_lib:notify', source, { title = 'Armour Shop', description = 'Du har købt en ' .. weapon .. ' for ' .. price .. 'kr!', type = 'success' })
         else
-            TriggerClientEvent('ox_lib:notify', source, { title = 'Armour Shop', description = 'Du har ikke nok penge til dette ', type = 'error' })
-            return false 
+            return false, TriggerClientEvent('ox_lib:notify', source, { title = 'Armour Shop', description = 'Du har ikke nok penge til dette ', type = 'error' })
         end
     end
 
